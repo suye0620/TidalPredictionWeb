@@ -3,3 +3,9 @@
 2. 然后往这个虚拟环境安装django包(如dj32)
 3. `pip list --format=freeze > requirements.txt`在项目目录创建环境的requirements.txt文件
 4. `django-admin startproject PROJECT_NAME`
+
+## 模板设计(使用房源的模板)
+1. base
+2. header
+3. footer
+4. slider
