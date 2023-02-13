@@ -1,10 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load static %}
 
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="{{ KEYWORDS }}">
+    <meta name="description" content="{{DESC}}">
+        <!-- for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- for 360 -->
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+        <!-- no converting numbers to a telephone number -->
+    <meta name="format-detection" content="telephone=no">
+        <!-- for ios devices  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- title -->
+    <title>{% block title %}{% endblock %}{{ SITE_NAME }}</title>
+    <!-- logo -->
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{% static 'css/style-starter.css' %}">
+    <!-- customize css code -->
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    {% include 'layout/header.html' %}
+
+    <!-- customize the banner in a specific page -->
+    {% block banner %}{% endblock %}
+
+    <!-- customize the contents in a specific page -->
+    {% block contents %}{% endblock %}
+
+    <!-- footer -->
+    {% include 'layout/footer.html' %}
+
+    <!-- Template JavaScript -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/theme-change.js' %}"></script>
+    <!--/search(maybe redundant)-->
+    <script src="{% static 'js/modernizr.custom.js' %}"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/demo1.js' %}"></script>
+    <!--//search-->
+
+    <!-- MENU-JS -->
+    <script>
+        $(window).on("scroll", function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function() {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function() {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });
+
+    </script>
+    <!-- //MENU-JS -->
+
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+        $(function() {
+            $('.navbar-toggler').click(function() {
+                $('body').toggleClass('noscroll');
+            })
+        });
+
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
+    <!-- //bootstrap -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- customize js code -->
+    {% block js %}{% endblock %}
 </body>
 </html>
