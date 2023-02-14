@@ -26,4 +26,6 @@ urlpatterns = [
     path('introduce/', include('introduce.urls')),
     # dashboard page
     path('dashboard/', include('dashboard.urls')),
+    # contact page
+    path('contact/', include('contact.urls')),
 ]
