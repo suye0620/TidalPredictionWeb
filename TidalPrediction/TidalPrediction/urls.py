@@ -20,7 +20,10 @@ from . import views
 urlpatterns = [
     # admin page
     path('admin/', admin.site.urls),
-    # path('introduce/', include('introduce.urls')),
     # index page
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    # introduction pages
+    path('introduce/', include('introduce.urls')),
+    # dashboard page
+    path('dashboard/', include('dashboard.urls')),
 ]

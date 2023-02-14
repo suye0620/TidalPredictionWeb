@@ -16,3 +16,13 @@
 3. [Meta标签中的format-detection属性及含义_BenjaminShih的博客-CSDN博客](https://blog.csdn.net/sjn0503/article/details/72897763)
 4. [前端页面中的\<meta name="renderer" content="webkit"\>意义 - 腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1455896)
 5. [解决Django中修改css或js文件但浏览器显示效果无法及时更新的问题_调皮李小怪的博客-CSDN博客_django js不生效](https://blog.csdn.net/qq_38388811/article/details/105625981)
+
+## 页面设计
+1. index
+2. intro应用（markdown排版）:包括自我介绍和模型介绍，然后把请求绑定到新建的页面
+3. dashboard页面
+4. contact
+
+## 创建一个新页面的一般步骤
+
+template → view → url → model → url → view → template
