@@ -14,7 +14,7 @@
                     </div>
                     <div class="w3breadcrumb-right">
                         <ul class="breadcrumbs-custom-path">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
                             <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Contact</li>
                         </ul>
                     </div>
@@ -100,9 +100,30 @@
         </div>
         <!-- //contacts-5-grid -->
     </div>
-
-    <div class="contacts-sub-5">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.305935303!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sin!4v1563262564932!5m2!1sen!2sin"
-                style="border:0" allowfullscreen></iframe>
+    <!-- /bing map api -->
+    <div class="container-fluid">
+        <div id='myMap-wenbo' style='height: 33vh;'></div>
     </div>
+    <!-- //bing map api -->
+
+    <script type='text/javascript'>
+        function loadMapScenario() {
+            var map = new Microsoft.Maps.Map(document.getElementById('myMap-wenbo'), {
+                {# latitude, longitude#}
+                center: new Microsoft.Maps.Location(30.47513328484944, 114.39353216983125),
+                zoom: 17,
+            });
+            var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), {
+                color: '#0267bc',
+                title: '中南财经政法大学',
+                subTitle: '文波楼, 统计与数学学院 '
+            });
+            map.entities.push(pushpin);
+
+        }
+    </script>
+    <script type='text/javascript'
+            src='https://cn.bing.com/api/maps/mapcontrol?branch=experimental&setmkt=zh-cn&key=Am_dTaZgHvrBLrlWbGxhwPilUh-lWZBmzI6Ym2DZhUa0AC7-pnJIg95pPXzPnhsW&callback=loadMapScenario'
+            async defer>
+    </script>
 {% endblock %}

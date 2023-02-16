@@ -16,6 +16,10 @@
 3. [Meta标签中的format-detection属性及含义_BenjaminShih的博客-CSDN博客](https://blog.csdn.net/sjn0503/article/details/72897763)
 4. [前端页面中的\<meta name="renderer" content="webkit"\>意义 - 腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1455896)
 5. [解决Django中修改css或js文件但浏览器显示效果无法及时更新的问题_调皮李小怪的博客-CSDN博客_django js不生效](https://blog.csdn.net/qq_38388811/article/details/105625981)
+6. [Bing Maps 开发入门 - 1_bcbobo21cn的博客-CSDN博客_bingmap](https://blog.csdn.net/bcbobo21cn/article/details/114469226)
+7. [必应地图api文档，微软必应地图web开发版详解，可以在国内使用国外地图 - 汪培 - 博客园](https://www.cnblogs.com/aiyunyun/p/6292567.html)
+8. [必应地图怎么查看经纬度-百度经验 ](https://jingyan.baidu.com/article/4f7d5712cf461e1a201927b4.html)
+9. [Bing Maps V8 Interactive SDK](https://cn.bing.com/maps/sdkrelease/mapcontrol/isdk/Overview#SearchModule2)
 
 ## 页面设计
 1. index
