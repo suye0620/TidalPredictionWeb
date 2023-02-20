@@ -30,3 +30,10 @@
 ## 创建一个新页面的一般步骤
 
 template → view → url → model → url → view → template
+
+## TODO
+1. 文章模板构建（主体参照about页面的container）:实际中我们使用了bootstrap官方网页的layout布局
+2. mistune
+3. 前端公式渲染mathjax
+4. 页面tocbot
+5. 页面codeblock
