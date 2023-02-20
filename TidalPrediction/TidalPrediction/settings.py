@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # beautify the UI of admin pages
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -110,16 +112,15 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
-USE_L10N = True
-
-USE_TZ = True
-
+USE_L10N = False
+# Must set False below, otherwise will set the timezone invalidly
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -134,3 +135,17 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# the settings of SimpleUI
+SIMPLEUI_LOGO = '/static/favicon.ico' #登录页和后台logo
+SIMPLEUI_ANALYSIS = False #是否向SimpleUi收集分析信息
+SIMPLEUI_LOADING = False #是否打开Loading遮罩层
+SIMPLEUI_LOGIN_PARTICLES = True #登录页粒子动画
+SIMPLEUI_STATIC_OFFLINE = True #是否以脱机模式加载静态资源，为True的时候将默认从本地读取所有资源，即使没有联网一样可以。适合内网项目，不填该项或者为False的时候，默认从第三方的cdn获取
+SIMPLEUI_HOME_INFO = False #是否打开SimpleUi服务器信息
+SIMPLEUI_DEFAULT_THEME = 'simpleui.css' #默认主题 https://simpleui.88cto.com/docs/simpleui/QUICK.html#%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98
+SIMPLEUI_HOME_QUICK = True #后台页面是否显示最近动作
+
+# admin username & password
+# tide
+# small_black_luo@
