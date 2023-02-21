@@ -24,6 +24,11 @@
 8. [必应地图怎么查看经纬度-百度经验 ](https://jingyan.baidu.com/article/4f7d5712cf461e1a201927b4.html)
 9. [Bing Maps V8 Interactive SDK](https://cn.bing.com/maps/sdkrelease/mapcontrol/isdk/Overview#SearchModule2)
 10. [Simple UI | Simple UI](https://simpleui.72wo.com/docs/simpleui/doc.html#%E4%BB%8B%E7%BB%8D)
+11. [模型 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/topics/db/models/#meta-inheritance)
+12. [模型 Meta 选项 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/models/options/)
+13. [验证器 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/validators/#django.core.validators.URLValidator)
+14. 
+
 
 ## 页面设计
 
@@ -34,16 +39,17 @@
 
 ## 创建一个新页面的一般步骤
 
-template → view → url → model → url → view → template
+template → view → url → model(→admin→setting) → url → view → template
 
 ## TODO
 
 1. 文章模板构建（主体参照about页面的container）：实际中我们使用了bootstrap官方网页的layout布局
 2. simpleUI：成功配置，并给favicon配置了url，让admin也有了图标
-3. django-mdeditor
+3. django-mdeditor：成功配置，而且为什么tex预览的bug好像修复了
 4. mistune
 5. 前端公式渲染mathjax
 6. 页面tocbot
 7. 页面codeblock
+8. valine
 
 ![img.png](README-img/img.png)

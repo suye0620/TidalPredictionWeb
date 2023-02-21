@@ -39,9 +39,9 @@ class Introduction(models.Model):
     portfolio_icon = models.CharField(max_length=50, default='fas fa-envelope', verbose_name='归档页图标')
     content = MDTextField(verbose_name='详细内容')
     is_recommend = models.BooleanField(default=False, verbose_name='是否推荐')
-    # 文章创建时间。参数 default=datetime.now 指定其在创建数据时将默认写入当前的时间
+    # 创建介绍时间。参数 default=datetime.now 指定其在创建数据时将默认写入当前的时间
     add_time = models.DateTimeField(default=datetime.now, verbose_name='发布时间')
-    # 文章更新时间。参数 auto_now=True 指定每次数据更新时自动写入当前时间
+    # 更新介绍时间。参数 auto_now=True 指定每次数据更新时自动写入当前时间
     update_time = models.DateTimeField(auto_now=True, verbose_name='更新时间')
 
     class Meta:
@@ -60,4 +60,4 @@ class Introduction(models.Model):
     icon_preview.short_description = '介绍归档页图标预览'
 
     def __str__(self):
-        return self.title  # 将文章标题返回
+        return self.title  # 将介绍标题返回

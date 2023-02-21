@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-uil-3=n*h@rwb*z3^xen*d8v5r_g%)yn8chpvxko5m6y%domx#
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,6 +45,8 @@ INSTALLED_APPS = [
     'dashboard',
     # django-mdeditor plugin
     'mdeditor',
+    # import-export plugin
+    'import_export',
 
 ]
 
@@ -83,7 +83,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TidalPrediction.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -93,7 +92,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -112,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -142,14 +139,49 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # the settings of SimpleUI
-SIMPLEUI_LOGO = '/static/favicon.ico' #登录页和后台logo
-SIMPLEUI_ANALYSIS = False #是否向SimpleUi收集分析信息
-SIMPLEUI_LOADING = False #是否打开Loading遮罩层
-SIMPLEUI_LOGIN_PARTICLES = True #登录页粒子动画
-SIMPLEUI_STATIC_OFFLINE = True #是否以脱机模式加载静态资源，为True的时候将默认从本地读取所有资源，即使没有联网一样可以。适合内网项目，不填该项或者为False的时候，默认从第三方的cdn获取
-SIMPLEUI_HOME_INFO = False #是否打开SimpleUi服务器信息
-SIMPLEUI_DEFAULT_THEME = 'simpleui.css' #默认主题 https://simpleui.88cto.com/docs/simpleui/QUICK.html#%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98
-SIMPLEUI_HOME_QUICK = True #后台页面是否显示最近动作
+SIMPLEUI_LOGO = '/static/favicon.ico'  # 登录页和后台logo
+SIMPLEUI_ANALYSIS = False  # 是否向SimpleUi收集分析信息
+SIMPLEUI_LOADING = False  # 是否打开Loading遮罩层
+SIMPLEUI_LOGIN_PARTICLES = True  # 登录页粒子动画
+SIMPLEUI_STATIC_OFFLINE = True  # 是否以脱机模式加载静态资源，为True的时候将默认从本地读取所有资源，即使没有联网一样可以。适合内网项目，不填该项或者为False的时候，默认从第三方的cdn获取
+SIMPLEUI_HOME_INFO = False  # 是否打开SimpleUi服务器信息
+SIMPLEUI_DEFAULT_THEME = 'simpleui.css'  # 默认主题 https://simpleui.88cto.com/docs/simpleui/QUICK.html#%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98
+SIMPLEUI_HOME_QUICK = True  # 后台页面是否显示最近动作
+SIMPLEUI_CONFIG = {
+    'system_keep': False,  # 去除系统模块
+    'menus': [
+        {
+            'name': '介绍管理',
+            'icon': 'fas fa-book-open',
+            'url': '/admin/introduce/introduction/',
+        },
+        {
+            'name': '网站设置',
+            'icon': 'fas fa-globe-americas',
+            'url': '/admin/introduce/site/',
+
+        },
+        {
+            'name': 'valine评论',
+            'icon': 'far fa-comments',
+            'url': '/admin/contact/valine/',
+        },
+        {
+            'app': 'auth',
+            'name': '用户和授权',
+            'icon': 'fas fa-user-shield',
+            'models': [{
+                'name': '用户',
+                'icon': 'fa fa-user',
+                'url': 'auth/user/'
+            }, {
+                'name': '权限组',
+                'icon': 'fas fa-users-cog',
+                'url': 'auth/group/'
+            }]
+        },
+    ],
+}
 
 # Admin username & password
 # tide
@@ -165,30 +197,30 @@ MEDIA_URL = '/media/'
 
 # 编辑器布局配置
 MDEDITOR_CONFIGS = {
-'default':{
-    'width': '90%',  # 自定义编辑框宽度
-    'heigth': 500,   # 自定义编辑框高度
-    'toolbar': ["undo", "redo", "|",
-                "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|",
-                "h1", "h2", "h3", "h5", "h6", "|",
-                "list-ul", "list-ol", "hr", "|",
-                "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
-                "emoji", "html-entities", "pagebreak", "goto-line", "|",
-                "help", "info",
-                "||", "preview", "watch", "fullscreen"],  # 自定义编辑框工具栏
-    'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # 图片上传格式类型
-    'image_folder': 'editor',  # 图片保存文件夹名称
-    'theme': 'default',  # 编辑框主题 ，dark / default
-    'preview_theme': 'default',  # 预览区域主题， dark / default
-    'editor_theme': 'default',  # edit区域主题，pastel-on-dark / default
-    'toolbar_autofixed': True,  # 工具栏是否吸顶
-    'search_replace': True,  # 是否开启查找替换
-    'emoji': True,  # 是否开启表情功能
-    'tex': True,  # 是否开启 tex 图表功能
-    'flow_chart': True,  # 是否开启流程图功能
-    'sequence': True,  # 是否开启序列图功能
-    'watch': True,  # 实时预览
-    'lineWrapping': False,  # 自动换行
-    'lineNumbers': False  # 行号
+    'default': {
+        'width': '90%',  # 自定义编辑框宽度
+        'heigth': 450,  # 自定义编辑框高度
+        'toolbar': ["undo", "redo", "|",
+                    "bold", "del", "italic", "quote", "ucwords", "uppercase", "|",
+                    "h1", "h2", "h3", "h4", "h5", "h6", "|",
+                    "list-ul", "list-ol", "hr", "|",
+                    "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime",
+                    "emoji", "html-entities", "pagebreak", "goto-line", "|",
+                    "help", "info",
+                    "||", "preview", "watch", "fullscreen"],  # 自定义编辑框工具栏
+        'upload_image_formats': ["jpg", "jpeg", "gif", "png", "bmp", "webp"],  # 图片上传格式类型
+        'image_folder': 'editor',  # 图片保存文件夹名称
+        'theme': 'default',  # 编辑框主题 ，dark / default
+        'preview_theme': 'default',  # 预览区域主题， dark / default
+        'editor_theme': 'default',  # edit区域主题，pastel-on-dark / default
+        'toolbar_autofixed': True,  # 工具栏是否吸顶
+        'search_replace': True,  # 是否开启查找替换
+        'emoji': True,  # 是否开启表情功能
+        'tex': True,  # 是否开启 tex 图表功能
+        'flow_chart': True,  # 是否开启流程图功能
+        'sequence': True,  # 是否开启序列图功能
+        'watch': True,  # 实时预览
+        'lineWrapping': True,  # 自动换行
+        'lineNumbers': True  # 行号
     }
 }
