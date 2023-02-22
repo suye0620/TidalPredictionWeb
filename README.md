@@ -46,7 +46,7 @@ template → view → url → model(→admin→setting) → url → view → tem
 1. 文章模板构建（主体参照about页面的container）：实际中我们使用了bootstrap官方网页的layout布局
 2. simpleUI：成功配置，并给favicon配置了url，让admin也有了图标
 3. django-mdeditor：成功配置，而且为什么tex预览的bug好像修复了
-4. mistune
+4. mistune：
 5. 前端公式渲染mathjax
 6. 页面tocbot
 7. 页面codeblock
