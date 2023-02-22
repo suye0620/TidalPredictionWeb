@@ -1,0 +1,109 @@
+<!-- the current directory is templates/ -->
+{% extends 'layout/base.html' %}
+{% load static %}
+{% load custom_tag %}
+
+{% block css %}
+    <!-- docs CSS for introduction -->
+    <!-- change the style (bd-layout (grid))  -->
+    <link rel="stylesheet" href="{% static 'css/docs.css' %}">
+{% endblock %}
+
+{% block banner %}
+    <!--/inner-page-->
+    <div class="inner-banner py-5">
+        <section class="w3l-breadcrumb text-left py-sm-5 ">
+            <div class="container">
+                <div class="w3breadcrumb-gids">
+                    <div class="w3breadcrumb-left text-left">
+                        <h2 class="inner-w3-title mt-sm-5 mt-4">
+                            Services </h2>
+
+                    </div>
+                    <div class="w3breadcrumb-right">
+                        <ul class="breadcrumbs-custom-path">
+                            <li><a href="{% url 'portfolio_of_introduction' %}">Home</a></li>
+                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!--//inner-page-->
+{% endblock %}
+
+{% block contents %}
+    <div class="container-xxl my-md-4 bd-layout">
+        <main class="bd-main order-1">
+            <div class="bd-intro ps-lg-4">
+                <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
+                    <a class="btn btn-sm btn-bd-light mb-2 mb-md-0"
+                       href="https://github.com/twbs/bootstrap/blob/v5.0.2/site/content/docs/5.0/getting-started/introduction.md"
+                       title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
+                    <h1 class="bd-title" id="content">{{ introduction.title }}</h1>
+                </div>
+                <p class="bd-lead">{{ introduction.desc }}</p>
+                <script async="" src="https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&amp;placement=getbootstrapcom"
+                        id="_carbonads_js"></script>
+
+            </div>
+
+
+            <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+                <strong class="d-block h6 my-2 pb-2 border-bottom">On this page</strong>
+                <nav id="TableOfContents">
+                    <ul>
+                        <li><a href="#quick-start">Quick start</a>
+                            <ul>
+                                <li><a href="#css">CSS</a></li>
+                                <li><a href="#js">JS</a>
+                                    <ul>
+                                        <li><a href="#bundle">Bundle</a></li>
+                                        <li><a href="#separate">Separate</a></li>
+                                        <li><a href="#modules">Modules</a></li>
+                                        <li><a href="#components">Components</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#starter-template">Starter template</a></li>
+                        <li><a href="#important-globals">Important globals</a>
+                            <ul>
+                                <li><a href="#html5-doctype">HTML5 doctype</a></li>
+                                <li><a href="#responsive-meta-tag">Responsive meta tag</a></li>
+                                <li><a href="#box-sizing">Box-sizing</a></li>
+                                <li><a href="#reboot">Reboot</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="bd-content ps-lg-4">
+                {{ introduction_detail_html | custom_markdown | safe }}
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block js %}
+<!--公式支持-->
+<script type="text/x-mathjax-config">
+	var articlemathId = document.getElementById("articleContent");
+	var commentmathId = document.getElementById("commentlist-container");
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ['$','$'] ], //行内公式
+			displayMath: [ ['$$','$$'] ], //行间公式
+			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'], //渲染时跳过的html标签
+			ignoreClass: "summary", //忽略的class
+		}
+	});
+	MathJax.Hub.Queue(["Typeset", MathJax.Hub, articlemathId, commentmathId]); //指定渲染的html块，可以为多个
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endblock %}

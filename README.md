@@ -46,10 +46,11 @@ template → view → url → model(→admin→setting) → url → view → tem
 1. 文章模板构建（主体参照about页面的container）：实际中我们使用了bootstrap官方网页的layout布局
 2. simpleUI：成功配置，并给favicon配置了url，让admin也有了图标
 3. django-mdeditor：成功配置，而且为什么tex预览的bug好像修复了
-4. mistune：
-5. 前端公式渲染mathjax
+4. mistune：成功配置0.8.4
+5. 前端公式渲染mathjax：成功配置mathJax2版本
 6. 页面tocbot
 7. 页面codeblock
 8. valine
+9. GET https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom net::ERR_CONNECTION_TIMED_OUT
 
 ![img.png](README-img/img.png)

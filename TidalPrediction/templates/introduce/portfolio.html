@@ -43,7 +43,7 @@
                                     <div class="icon">
                                         <i class="{{ introduction.portfolio_icon }}"></i>
                                     </div>
-                                    <h4><a href="{% url 'introduction_detail' %}" class="title-head mb-3">{{ introduction.title }}</a></h4>
+                                    <h4><a href="{% url 'introduction_detail' introduction.id %}" class="title-head mb-3">{{ introduction.title }}</a></h4>
                                     <p class="text-para">{{ introduction.desc }}</p>
                                 </div>
                             </div>
