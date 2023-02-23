@@ -48,8 +48,8 @@ template → view → url → model(→admin→setting) → url → view → tem
 3. django-mdeditor：成功配置，而且为什么tex预览的bug好像修复了
 4. mistune：成功配置0.8.4
 5. 前端公式渲染mathjax：成功配置mathJax2版本
-6. 页面tocbot
-7. 页面codeblock
+6. 页面tocbot：页面微调，给目录增加折叠和放大效果
+7. 页面codeblock：取消复制块，增加完成
 8. valine
 9. GET https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom net::ERR_CONNECTION_TIMED_OUT
 
