@@ -27,7 +27,7 @@
 11. [模型 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/topics/db/models/#meta-inheritance)
 12. [模型 Meta 选项 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/models/options/)
 13. [验证器 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/validators/#django.core.validators.URLValidator)
-14. 
+14. [Pyecharts Document](https://gallery.pyecharts.org/#/)麻了，最新版基本不兼容之前的用法
 
 
 ## 页面设计
@@ -54,3 +54,9 @@ template → view → url → model(→admin→setting) → url → view → tem
 9. GET https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom net::ERR_CONNECTION_TIMED_OUT
 
 ![img.png](README-img/img.png)
+
+1. 比赛：尽量卷满，并且拿到建模国奖或者统计建模国奖
+2. 创业：尽量混个省奖挂名
+3. 专业课学习：多元统计分析（包括回归分析）要学扎实些，以及数理统计学要学懂，面试时里面一些书本概念很重要
+4. 成绩排名：武大夏令营可能只要加权前二，预推免机会会大些，放到加权前三这样
+5. 四六级500多分
