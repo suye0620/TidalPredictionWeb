@@ -1,5 +1,21 @@
 <!-- the current directory is templates/ -->
 {% extends 'layout/base.html' %}
+{% load static %}
+
+{% block css %}
+    <style>
+        .inner-banner {
+            background: url({% static "images/banner4.jpeg" %}) no-repeat center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            position: relative;
+            z-index: 0;
+        }
+    </style>
+{% endblock %}
 
 {% block banner %}
     <!--/inner-page-->

@@ -15,6 +15,18 @@
         code[class*="language-"], pre[class*="language-"] {
             white-space: pre !important;
         }
+
+        .inner-banner {
+            {#background: url({{ introduction.cover }}) no-repeat center;#}
+            background: url({% static "images/banner2.jpeg" %}) no-repeat center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            position: relative;
+            z-index: 0;
+        }
     </style>
 {% endblock %}
 

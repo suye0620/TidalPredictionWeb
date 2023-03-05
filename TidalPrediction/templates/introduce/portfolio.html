@@ -1,5 +1,20 @@
 <!-- the current directory is templates/ -->
 {% extends 'layout/base.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .inner-banner {
+            background: url({% static "images/banner3.jpeg" %}) no-repeat center;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            -ms-background-size: cover;
+            position: relative;
+            z-index: 0;
+        }
+    </style>
+{% endblock %}
 
 {% block banner %}
     <!--/inner-page-->
@@ -9,13 +24,13 @@
                 <div class="w3breadcrumb-gids">
                     <div class="w3breadcrumb-left text-left">
                         <h2 class="inner-w3-title mt-sm-5 mt-4">
-                            Services </h2>
+                            Introduction </h2>
 
                     </div>
                     <div class="w3breadcrumb-right">
                         <ul class="breadcrumbs-custom-path">
                             <li><a href="{% url 'index' %}">Home</a></li>
-                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Services </li>
+                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Introduction</li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +58,8 @@
                                     <div class="icon">
                                         <i class="{{ introduction.portfolio_icon }}"></i>
                                     </div>
-                                    <h4><a href="{% url 'introduction_detail' introduction.id %}" class="title-head mb-3">{{ introduction.title }}</a></h4>
+                                    <h4><a href="{% url 'introduction_detail' introduction.id %}"
+                                           class="title-head mb-3">{{ introduction.title }}</a></h4>
                                     <p class="text-para">{{ introduction.desc }}</p>
                                 </div>
                             </div>
@@ -55,8 +71,8 @@
                     <h6 class="title-subw3hny mb-1">Error</h6>
                     <h3 class="title-w3l">The request method is not True</h3>
                 </div>
-            {% endif %} 
-            
+            {% endif %}
+
         </div>
     </section>
     <!--//features section -->

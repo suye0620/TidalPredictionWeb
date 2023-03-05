@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Introduction
+from .models import Introduction,Site
 import re, mistune
 
 
@@ -125,3 +125,12 @@ def introduction_detail(request, id):
         'introduction_detail_html': output,
     }
     return render(request, "introduce/introduction_detail.html", context)
+
+def global_params(request):
+    site_name = Site.objects.first().site_name
+    site_desc = Site.objects.first().desc
+
+
+    return {
+
+    }

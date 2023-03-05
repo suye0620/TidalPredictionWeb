@@ -52,11 +52,7 @@ template → view → url → model(→admin→setting) → url → view → tem
 7. 页面codeblock：取消复制块，增加完成
 8. valine
 9. GET https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom net::ERR_CONNECTION_TIMED_OUT
+10. 数据看板打算直接用echarts做，不用pyecharts
 
 ![img.png](README-img/img.png)
 
-1. 比赛：尽量卷满，并且拿到建模国奖或者统计建模国奖
-2. 创业：尽量混个省奖挂名
-3. 专业课学习：多元统计分析（包括回归分析）要学扎实些，以及数理统计学要学懂，面试时里面一些书本概念很重要
-4. 成绩排名：武大夏令营可能只要加权前二，预推免机会会大些，放到加权前三这样
-5. 四六级500多分
