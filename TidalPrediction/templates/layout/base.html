@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- title -->
-    <title>{% block title %}{% endblock %}{{ SITE_NAME }}</title>
+    <title>{{ SITE_NAME }}{% block title %}{% endblock %}</title>
     <!-- logo -->
 {#    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">#}
     <!-- google fonts -->

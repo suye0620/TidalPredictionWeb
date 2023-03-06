@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Introduction,Site
+from .models import Introduction, Site
 import re, mistune
 
 
@@ -109,6 +109,7 @@ class MarkdownWithMath(mistune.Markdown):
     def output_latex_environment(self):
         return self.renderer.latex_environment(self.token['name'], self.token['text'])
 
+
 # #################################################################################################
 
 
@@ -126,11 +127,27 @@ def introduction_detail(request, id):
     }
     return render(request, "introduce/introduction_detail.html", context)
 
-def global_params(request):
-    site_name = Site.objects.first().site_name
-    site_desc = Site.objects.first().desc
 
+def global_params(request):
+    # 网站名字
+    site_name = Site.objects.first().site_name
+    # 网站关键词
+    site_keywords = Site.objects.first().keywords
+    # 网站描述
+    site_desc = Site.objects.first().desc
+    # 网站标语
+    site_slogan = Site.objects.first().slogan
+    # 备案号
+    icp_number = Site.objects.first().icp_number
+    # 备案链接
+    icp_url = Site.objects.first().icp_url
+    # 首页横幅
+    index_banner = Site.objects.first().index_banner
 
     return {
-
+        'SITE_NAME': site_name,
+        'KEYWORDS': site_keywords,
+        'DESC': site_desc,
+        'ICP_URL': icp_url,
+        'ICP_NUMBER': icp_number,
     }
