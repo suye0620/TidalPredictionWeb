@@ -56,3 +56,4 @@ template → view → url → model(→admin→setting) → url → view → tem
 
 ![img.png](README-img/img.png)
 
+Failed to load resource: net::ERR_CONNECTION_TIMED_OUT

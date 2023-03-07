@@ -116,6 +116,9 @@
                         </div>
                     </form>
                 </div>
+
+                <div id="vcomments"></div>
+
             </div>
         </div>
         <!-- //contacts-5-grid -->
@@ -145,5 +148,18 @@
     <script type='text/javascript'
             src='https://cn.bing.com/api/maps/mapcontrol?branch=experimental&setmkt=zh-cn&key=Am_dTaZgHvrBLrlWbGxhwPilUh-lWZBmzI6Ym2DZhUa0AC7-pnJIg95pPXzPnhsW&callback=loadMapScenario'
             async defer>
+    </script>
+    <!-- 评论功能 -->
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: '{{valine.appid}}',
+            appKey: '{{valine.appkey}}',
+            avatar: '{{ valine.avatar }}',
+            pageSize: '{{valine.pagesize}}',
+            lang: 'zh-cn',
+            placeholder: '{{ valine.placeholder }}'
+        })
     </script>
 {% endblock %}
