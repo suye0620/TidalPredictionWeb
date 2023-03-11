@@ -50,7 +50,7 @@ template → view → url → model(→admin→setting) → url → view → tem
 5. 前端公式渲染mathjax：成功配置mathJax2版本
 6. 页面tocbot：页面微调，给目录增加折叠和放大效果
 7. 页面codeblock：取消复制块，增加完成
-8. valine
+8. valine：就这样吧
 9. GET https://cdn.carbonads.com/carbon.js?serve=CKYIKKJL&placement=getbootstrapcom net::ERR_CONNECTION_TIMED_OUT
 10. 数据看板打算直接用echarts做，不用pyecharts
 

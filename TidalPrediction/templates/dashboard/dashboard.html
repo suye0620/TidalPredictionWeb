@@ -48,7 +48,105 @@
 {% endblock %}
 
 {% block contents %}
-    <!-- features section -->
+    <!--/faq-section-->
+    <div class="w3l-faq-block py-5" id="faq">
+        <div class="container content-gd py-lg-5">
+            <div class="row mt-3">
+                <div class="col-lg-6 faqw3-right pe-lg-5">
+                    <div class="faqw3content text-left">
+                        <h6 class="title-subw3hny mb-1 text-left">Data Source</h6>
+                        <h3 class="title-w3l mb-2">数据来源</h3>
+                    </div>
+                    <p class="mb-3">
+                        为了进行有效的潮汐预报，临海国家大多会在其主要港口设置潮汐测量站，以收集足够的用于预报的观测数据。
+                        我们本次研究使用的数据来源于爱尔兰海洋研究所运营的实时潮汐监测网络（The Irish National Tide Gauge Network，
+                        INTGN）。
+                        该潮汐检测网络收集的数据维度包括：气象站（ID）、日期时间（时间戳格式为yyyy-mm-ddThh:mm:ss）、天文潮水位（最低天文潮位
+                        [LAT]以上的海平面，单位：m）和马林头水位（与气象基准Malin Head相关的水位，m）。
+                        用户下载数据时可以设置表计、时间段等条件进行筛选，并获得多种输出文件类型。实时数据也可从FTP站点获取，
+                        参见<a href="http://www.marine.ie/site-area/data-services/real-time-observations/tidal-observations-0" style="color: var(--secondary-color);">www.irishtides.ie</a>。
+                        用户可以从该站点上获得更多的爱尔兰特定沿海位置的海平面、海水温度和大气压力监测信息。
+                    </p>
+
+                </div>
+                <div class="col-lg-6 faqw3-left">
+                    <img src="{% static 'images/mi_logo.gif' %}" alt="" class="img-fluid radius-image">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    01. CSV
+                                </button>
+                            </h4>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <i class="fas fa-download" style="font-size: 1.75rem"></i>
+                                    <a target="_blank" href="https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html" style="color: var(--secondary-color);">https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    02. ISO 19156:2011 Observations and Measurements XML
+                                </button>
+                            </h4>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <i class="fas fa-file-code" style="font-size: 1.75rem"></i><br>
+                                    <a target="_blank" href="https://iemarinedata.blob.core.windows.net/observations-and-measurements/ie_marine_data__dataset_2774.xml" style="color: var(--secondary-color);">https://iemarinedata.blob.core.windows.net/observations-and-measurements/ie_marine_data__dataset_2774.xml</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    03. JSON
+                                </button>
+                            </h4>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <i class="fas fa-download" style="font-size: 1.75rem"></i>
+                                    <a target="_blank" href="https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html" style="color: var(--secondary-color);">https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingFourth">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourth" aria-expanded="false" aria-controls="collapseFourth">
+                                    04. NetCDF
+                                </button>
+                            </h4>
+                            <div id="collapseFourth" class="accordion-collapse collapse" aria-labelledby="headingFourth" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <i class="fas fa-download" style="font-size: 1.75rem"></i>
+                                    <a target="_blank" href="https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html " style="color: var(--secondary-color);">https://erddap.marine.ie/erddap/tabledap/IrishNationalTideGaugeNetwork.html</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="headingFifth">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifth" aria-expanded="false" aria-controls="collapseFifth">
+                                    05. Marine Institute Home Page
+                                </button>
+                            </h4>
+                            <div id="collapseFifth" class="accordion-collapse collapse" aria-labelledby="headingFifth" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <i class="fas fa-link" style="font-size: 1.75rem"></i>
+                                    <a target="_blank" href="http://www.marine.ie" style="color: var(--secondary-color);">http://www.marine.ie</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- //faq-section -->
+
+    <!-- dashboard section -->
     <section class="w3l-features py-5" id="features">
         <div class="container py-lg-5 py-md-4 py-2">
             <div class="title-content text-center mb-lg-3 mb-4">
@@ -58,7 +156,7 @@
             <div id="plotdemo" style="width: 600px;height:400px;"></div>
         </div>
     </section>
-    <!--//features section -->
+    <!--//dashboard section -->
 {% endblock %}
 
 {% block js %}
