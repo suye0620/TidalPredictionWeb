@@ -14,22 +14,22 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav mx-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                        <a class="nav-link" id="link-index" aria-current="page" href="{% url 'index' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'portfolio_of_introduction' %}">Introduction</a>
+                        <a class="nav-link" id="link-introduction" href="{% url 'portfolio_of_introduction' %}">Introduction</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                        <a class="nav-link" id="link-dashboard" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        <a class="nav-link" id="link-contact" href="{% url 'contact' %}">Contact</a>
                     </li>
 
                     <!-- the entrance of admin  -->
                     <li class="nav-item">
-                        <a class="nav-link" href="/admin/">Admin</a>
+                        <a class="nav-link" id="link-admin" href="/admin/">Admin</a>
                     </li>
                     <!-- //the entrance of admin -->
                 </ul>
