@@ -181,34 +181,34 @@
                     <h3 class="title-w3l">站点分布</h3>
                     <div class="mt-md-4 mt-3">
                         {{ df_siteinfo | safe }}
-                    <table class="table table-hover">
-                        <thead>
+                        <table class="table table-hover">
+                            <thead>
 
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Site</th>
-                            <th scope="col">Latitude (°)</th>
-                            <th scope="col">Longitude (°)</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for row in siteinfo %}
-                        <tr>
-                            <th scope="row">{{ row | add:1 }}</th>
-                            <td>{{ siteinfo| get_v:row | get_v:"Site" }}</td>
-                            <td>{{ siteinfo| get_v:row | get_v:"Latitude" | floatformat:4 }}</td>
-                            <td>{{ siteinfo| get_v:row | get_v:"Longitude" | floatformat:4 }}</td>
-                        </tr>
-                        {% endfor %}
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Site</th>
+                                <th scope="col">Latitude (°)</th>
+                                <th scope="col">Longitude (°)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in siteinfo %}
+                                <tr>
+                                    <th scope="row">{{ row | add:1 }}</th>
+                                    <td>{{ siteinfo| get_v:row | get_v:"Site" }}</td>
+                                    <td>{{ siteinfo| get_v:row | get_v:"Latitude" | floatformat:4 }}</td>
+                                    <td>{{ siteinfo| get_v:row | get_v:"Longitude" | floatformat:4 }}</td>
+                                </tr>
+                            {% endfor %}
 
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
                 <div class="col-lg-6 align-self pe-lg-4">
                     <!-- /bing maps for Ireland -->
-                        <div id='myMap-Ireland' style='height: 40vh;'></div>
+                    <div id='myMap-Ireland' style='height: 40vh;'></div>
                     <!-- //bing maps for Ireland -->
                 </div>
 
@@ -225,7 +225,7 @@
                 zoom: 6,
             });
             {% for row in siteinfo %}
-                var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location({{siteinfo| get_v:row | get_v:"Latitude" | floatformat:4}},{{ siteinfo| get_v:row | get_v:"Longitude" | floatformat:4 }}), {
+                var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location({{siteinfo| get_v:row | get_v:"Latitude" | floatformat:4}}, {{ siteinfo| get_v:row | get_v:"Longitude" | floatformat:4 }}), {
                     color: '#0267bc',
                     title: '{{ siteinfo| get_v:row | get_v:"Site" }}',
                 });
@@ -237,6 +237,36 @@
             src='https://cn.bing.com/api/maps/mapcontrol?branch=experimental&setmkt=zh-cn&key=Am_dTaZgHvrBLrlWbGxhwPilUh-lWZBmzI6Ym2DZhUa0AC7-pnJIg95pPXzPnhsW&callback=loadMapScenario'
             async defer>
     </script>
+
+    <!-- /charts -->
+    <section class="w3l-servicesblock w3l-servicesblock1 py-5" id="progress">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="row">
+                <div class="col-lg-6 mb-lg-0 mb-5 pe-lg-5">
+                    <h6 class="title-subw3hny mb-1">Line Graphs</h6>
+                    <h3 class="title-w3l">潮位观测</h3>
+                    <p class="mt-md-4 mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
+                        ultrices in ligula. Semper at. Lorem ipsum dolor sit amet
+                        elit. Non quae, fugiat nihil ad. Lorem ipsum dolor sit amet init.
+                    </p>
+                    <!-- action是提交的位置，其实就是一个url -->
+                    <select class="form-select form-select-lg mb-3" id="choose-site-select">
+                        {% for row in siteinfo %}
+                            <option value="{{ row }}">{{ siteinfo| get_v:row | get_v:"Site" }}</option>
+                        {% endfor %}
+                    </select>
+                    <input class="btn btn-primary" type="submit" value="查询" id="choose-site-btn">
+                </div>
+
+                <div class="col-lg-6 align-self pe-lg-4">
+                    图就放这里吧
+                    <p id="test-result"></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- //charts -->
 
     <!-- dashboard section -->
     <section class="w3l-features py-5" id="features">
@@ -252,9 +282,38 @@
 {% endblock %}
 
 {% block js %}
+    <!-- 导航栏激活 -->
     <script>
         $("#link-dashboard").addClass("active")
     </script>
+
+    <!-- Ajax异步 -->
+    <!-- 妈的，这个回调是真麻烦，没有flask好用 -->
+    <script>
+        $(document).ready(
+            function () {
+                $("#choose-site-btn").on("click", function () {
+                    $.ajax({
+                            url: "query", //相当于form表单里的action
+                            type: "GET",
+                            data: {
+                                "choose-site": $("#choose-site-select").val(),
+                            },
+                            success: function (data) {
+                                $("#test-result").append(JSON.stringify(data));
+                                console.log(data);
+                            },
+                            error: function () {
+                                console.log('failed')
+                            }
+                        },
+                    )
+                })
+            }
+        )
+    </script>
+
+    <!-- echarts绘图 -->
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
