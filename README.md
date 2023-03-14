@@ -28,6 +28,10 @@
 12. [模型 Meta 选项 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/models/options/)
 13. [验证器 | Django 文档 | Django](https://docs.djangoproject.com/zh-hans/3.2/ref/validators/#django.core.validators.URLValidator)
 14. [Pyecharts Document](https://gallery.pyecharts.org/#/)麻了，最新版基本不兼容之前的用法
+15. [(1条消息) Django中Ajax的使用_忘尘~的博客-CSDN博客](https://blog.csdn.net/BobYuan888/article/details/84250116)
+16. [Django使用JQuery实现Ajax请求 - 腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1456373)
+17. [(1条消息) 【JavaScript】关于[object Object]_小绵杨Yancy的博客-CSDN博客](https://blog.csdn.net/ZHANGYANG_1109/article/details/124537388)
+18. [(1条消息) Django怎么获取get请求里面的参数_django获取get请求参数_他-途的博客-CSDN博客](https://blog.csdn.net/au55555/article/details/80024375)
 
 
 ## 页面设计

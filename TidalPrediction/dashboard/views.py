@@ -11,6 +11,17 @@ def get_siteinfo(filepath: str = current_dir / "data/SiteInfo.csv"):
     return df_siteinfo
 
 
+def get_siteseries(site_num):
+    dict_num2data = {
+        0: "IrishNationalTideGaugeNetwork_Howth Harbour2017.csv",
+        1: "IrishNationalTideGaugeNetwork_Ballycotton Harbour2017.csv",
+        2: "IrishNationalTideGaugeNetwork_Ballyglass Harbour2017.csv",
+        3: "IrishNationalTideGaugeNetwork_Castletownbere Port2017.csv",
+        4: "IrishNationalTideGaugeNetwork_Galway Port2017.csv",
+    }
+    return current_dir / ("data/" + dict_num2data.get(site_num))
+
+
 # Create your views here.
 def dashboard(request):
     # dashboard page
@@ -22,6 +33,13 @@ def dashboard(request):
 
 
 def line_graph(request):
-    site_num = request.GET.get("choose-site")
-    data = {'name': 'suye', 'age': site_num}
+    site_num = int(request.GET.get("choose-site"))
+    # site_series = read_csv(get_siteseries(site_num), encoding='utf-8-sig', index_col=['time'], parse_dates=["time"], )
+    site_series = read_csv(get_siteseries(site_num), encoding='utf-8-sig', index_col=['time'], )
+    data = site_series.to_dict('dict')
     return JsonResponse(data)
+
+
+S1 = read_csv(get_siteseries(4), encoding='utf-8-sig',)
+S1['time'] = S1['time'].map(lambda x : x[:-6])
+S1.to_csv(get_siteseries(4), encoding='utf-8-sig',index=False)
