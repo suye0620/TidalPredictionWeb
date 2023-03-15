@@ -258,7 +258,8 @@
                     <input class="btn btn-primary" type="submit" value="查询" id="choose-site-btn">
                 </div>
 
-                <div class="col-lg-6 align-self pe-lg-4" id="plotdemo" style="width: 1600px;height:400px;">
+                <div class="col-lg-6 align-self pe-lg-4" id="echarts-tidal-series" style="height: 60vh;">
+                    {#                <div class="col-lg-6 align-self pe-lg-4" id="echarts-tidal-series" style="width: 800px;height:600px;">#}
                 </div>
 
             </div>
@@ -273,7 +274,7 @@
                 <h6 class="title-subw3hny mb-1">What We Do</h6>
                 <h3 class="title-w3l">数据看板</h3>
             </div>
-            <div  style="width: 600px;height:400px;"></div>
+            <div style="width: 600px;height:400px;"></div>
         </div>
     </section>
     <!--//dashboard section -->
@@ -291,26 +292,37 @@
         function LineGraph(json_data) {
             var series_data = json_data['Water_Level_LAT'];
             var list_timestamp = Object.keys(series_data);
-            console.log(list_timestamp)
+            {#console.log(list_timestamp)#}
             var list_value = Object.values(series_data);
-            console.log(list_value)
+            {#console.log(list_value)#}
             // 基于准备好的dom，初始化echarts实例
-            var myChart = echarts.init(document.getElementById('plotdemo'));
+            var myChart = echarts.init(document.getElementById('echarts-tidal-series'));
             // 指定图表的配置项和数据
             var option = {
-                 xAxis: {
+                title: {
+                    text: "潮汐观测序列图",
+                    left: 'center'
+                },
+                xAxis: {
                     data: list_timestamp,
-                  },
-                  yAxis: {
-                    type: 'value'
-                  },
-                  series: [
+                },
+                yAxis: {
+                    type: 'value',
+                    name: "水位高度",
+                    axisLabel: {
+                        formatter: '{value} m'
+                    },
+                },
+                series: [
                     {
-                      data: list_value,
-                      type: 'line',
-                      showSymbol: false,
+                        data: list_value,
+                        type: 'line',
+                        showSymbol: false,
                     }
-                  ]
+                ],
+                dataZoom: { // 放大和缩放
+                    type: 'inside'
+                },
             };
 
             // 使用刚指定的配置项和数据显示图表。
@@ -324,14 +336,13 @@
             function () {
                 $("#choose-site-btn").on("click", function () {
                     $.ajax({
-                            url: "query", //相当于form表单里的action
+                            url: "echarts", //相当于form表单里的action，把参数提交到echarts路由
                             type: "GET",
                             data: {
                                 "choose-site": $("#choose-site-select").val(),
                             },
                             success: function (data) {
                                 LineGraph(data)
-
                             },
                             error: function () {
                                 console.log('failed')

@@ -40,6 +40,6 @@ def line_graph(request):
     return JsonResponse(data)
 
 
-S1 = read_csv(get_siteseries(4), encoding='utf-8-sig',)
-S1['time'] = S1['time'].map(lambda x : x[:-6])
-S1.to_csv(get_siteseries(4), encoding='utf-8-sig',index=False)
+# S1 = read_csv(get_siteseries(4), encoding='utf-8-sig',)
+# S1['time'] = S1['time'].map(lambda x : x[:-6])
+# S1.to_csv(get_siteseries(4), encoding='utf-8-sig',index=False)
