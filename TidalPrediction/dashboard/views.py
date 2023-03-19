@@ -11,6 +11,11 @@ def get_siteinfo(filepath: str = current_dir / "data/SiteInfo.csv"):
     return df_siteinfo
 
 
+def get_examples(filepath: str = current_dir / "data/examples.csv"):
+    df_examples = read_csv(filepath, encoding='utf-8-sig')
+    return df_examples.head(50)
+
+
 def get_siteseries(site_num):
     dict_num2data = {
         0: "IrishNationalTideGaugeNetwork_Howth Harbour2017.csv",
@@ -38,7 +43,6 @@ def line_graph(request):
     site_series = read_csv(get_siteseries(site_num), encoding='utf-8-sig', index_col=['time'], )
     data = site_series.to_dict('dict')
     return JsonResponse(data)
-
 
 # S1 = read_csv(get_siteseries(4), encoding='utf-8-sig',)
 # S1['time'] = S1['time'].map(lambda x : x[:-6])
