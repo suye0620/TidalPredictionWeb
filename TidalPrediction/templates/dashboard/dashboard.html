@@ -290,17 +290,21 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }}</th>
                                 {% for col in examples_columns %}
-                                <td>{{ examples | get_v:row | get_v:col | floatformat:3 }}</td>
+                                    <td>{{ examples | get_v:row | get_v:col | floatformat:3 }}</td>
                                 {% endfor %}
-
                             </tr>
                         {% endfor %}
-
                         </tbody>
                     </table>
-
                 </div>
-
+                <div class="input-group">
+                  <span class="input-group-text">请输入10个时间步的潮汐水位值，<br>以,或者Tab键分隔</span>
+                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <div class="mt-md-4 mt-3">
+                    <p>使用我们的组合模型对下一个时间步的潮汐水位值进行预测，其结果为：</p>
+                    <p id="prediction-result"></p>
+                </div>
             </div>
         </div>
     </section>
