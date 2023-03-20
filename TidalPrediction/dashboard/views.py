@@ -11,9 +11,10 @@ def get_siteinfo(filepath: str = current_dir / "data/SiteInfo.csv"):
     return df_siteinfo
 
 
-def get_examples(filepath: str = current_dir / "data/examples.csv"):
+def get_examples_top50(filepath: str = current_dir / "data/examples.csv"):
     df_examples = read_csv(filepath, encoding='utf-8-sig')
-    return df_examples.head(50)
+    # 随机抽取50行用于预测展示
+    return df_examples.sample(n=50,random_state=666)
 
 
 def get_siteseries(site_num):
@@ -31,8 +32,11 @@ def get_siteseries(site_num):
 def dashboard(request):
     # dashboard page
     df_siteinfo = get_siteinfo()
+    df_examples = get_examples_top50()
     context = {
-        'siteinfo': df_siteinfo.to_dict("index")
+        'siteinfo': df_siteinfo.to_dict("index"),
+        'examples': df_examples.to_dict("index"),
+        'examples_columns': list(df_examples.columns),
     }
     return render(request, 'dashboard/dashboard.html', context)
 

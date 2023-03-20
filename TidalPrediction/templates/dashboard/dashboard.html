@@ -274,6 +274,32 @@
                     <h6 class="title-subw3hny mb-1">Tidal Prediction</h6>
                     <h3 class="title-w3l mb-3">潮位预测</h3>
                 </div>
+                <div class="mt-md-4 mt-3">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            {% for o in ''|rjust:10 %}
+                                <th scope="col">Timestep{{ forloop.counter }}</th>
+                            {% endfor %}
+                            <th scope="col">Target</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in examples %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }}</th>
+                                {% for col in examples_columns %}
+                                <td>{{ examples | get_v:row | get_v:col | floatformat:3 }}</td>
+                                {% endfor %}
+
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+
+                </div>
 
             </div>
         </div>
