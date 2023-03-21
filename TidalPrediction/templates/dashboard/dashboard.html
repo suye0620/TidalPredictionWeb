@@ -65,7 +65,7 @@
                         INTGN）。
                         该潮汐检测网络收集的数据维度包括：气象站（ID）、日期时间（时间戳格式为yyyy-mm-ddThh:mm:ss）、天文潮水位（最低天文潮位
                         [LAT]以上的海平面，单位：m）和马林头水位（与气象基准Malin Head相关的水位，m）。
-                        用户下载数据时可以设置表计、时间段等条件进行筛选，并获得多种输出文件类型。实时数据也可从FTP站点获取，
+                        用户下载数据时可以设置表计、时间段等条件进行筛选，并获得多种输出文件类型。最新的实时数据也可从FTP站点获取，
                         参见<a
                             href="http://www.marine.ie/site-area/data-services/real-time-observations/tidal-observations-0"
                             style="color: var(--secondary-color);">www.irishtides.ie</a>。
@@ -179,6 +179,9 @@
                 <div class="col-lg-6 mb-lg-0 mb-5 pe-lg-5">
                     <h6 class="title-subw3hny mb-1">Location Distribution of Each Site</h6>
                     <h3 class="title-w3l">站点分布</h3>
+                    <p class="mb-3">
+                        我们选取了爱尔兰海岸线上的5个站点的数据进行我们的模型通用性和泛化能力分析。五个站点的位置分布如图所示。
+                    </p>
                     <div class="mt-md-4 mt-3">
                         <table class="table table-hover">
                             <thead>
@@ -244,9 +247,7 @@
                 <div class="col-lg-6 mb-lg-0 mb-5 pe-lg-5">
                     <h6 class="title-subw3hny mb-1">Line Graphs</h6>
                     <h3 class="title-w3l">潮位观测</h3>
-                    <p class="mt-md-4 mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at. Lorem ipsum dolor sit amet
-                        elit. Non quae, fugiat nihil ad. Lorem ipsum dolor sit amet init.
+                    <p class="mt-md-4 mt-3">我们使用echarts绘制了上述站点的潮位观测序列图，您可以选择感兴趣的站点，以查看它们的数据变化趋势。实验数据均经过质量控制，时间跨度为2017年1月1日至2017年3月31日，记录间隔为6min。
                     </p>
                     <!-- action是提交的位置，其实就是一个url -->
                     <select class="form-select form-select-lg mb-3" id="choose-site-select">
@@ -273,6 +274,10 @@
                 <div class="mx-auto">
                     <h6 class="title-subw3hny mb-1">Tidal Prediction</h6>
                     <h3 class="title-w3l mb-3">潮位预测</h3>
+                    <p class="mt-md-4 mt-3">以Howth Harbour为例，我们训练部署了组合模型。在此提供调用模型的API以预测Howth Harbour的潮位。
+                        用户可以输入十个时间步的潮汐水位数据（即一小时内的数据观测），来预测下一时间步的潮位值。
+                        我们在下面提供了50个样例供用户进行测试实验，您可以直接复制其中一行的10个时间步数据，粘贴到输入框进行预测，再与Target值进行比对。
+                    </p>
                 </div>
                 <div class="mt-md-4 mt-3">
                     <table class="table table-hover">
@@ -304,7 +309,7 @@
                 <div class="mt-md-4 mt-3">
                     <p><span><input class="btn btn-primary" type="submit" value="点击预测" id="prediction-btn"></span>
                         使用我们的组合模型对下一个时间步的潮汐水位值进行预测，其结果为：</p>
-                    <p id="prediction-result"></p>
+                    <p id="prediction-result" style="font-weight: bold"></p>
                 </div>
             </div>
         </div>

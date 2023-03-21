@@ -32,6 +32,7 @@
 16. [Django使用JQuery实现Ajax请求 - 腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/1456373)
 17. [(1条消息) 【JavaScript】关于[object Object]_小绵杨Yancy的博客-CSDN博客](https://blog.csdn.net/ZHANGYANG_1109/article/details/124537388)
 18. [(1条消息) Django怎么获取get请求里面的参数_django获取get请求参数_他-途的博客-CSDN博客](https://blog.csdn.net/au55555/article/details/80024375)
+19. [4,000+张最精彩的“潮汐”图片 · 100%免费下载 · Pexels素材图片](https://www.pexels.com/zh-cn/search/%E6%BD%AE%E6%B1%90/)
 
 
 ## 页面设计
