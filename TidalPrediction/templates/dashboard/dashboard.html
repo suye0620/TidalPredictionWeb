@@ -298,11 +298,12 @@
                     </table>
                 </div>
                 <div class="input-group">
-                  <span class="input-group-text">请输入10个时间步的潮汐水位值，<br>以,或者Tab键分隔</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <span class="input-group-text">请输入10个时间步的潮汐水位值，<br>以,或者Tab键分隔</span>
+                    <textarea class="form-control" aria-label="With textarea" id="input-seq"></textarea>
                 </div>
                 <div class="mt-md-4 mt-3">
-                    <p>使用我们的组合模型对下一个时间步的潮汐水位值进行预测，其结果为：</p>
+                    <p><span><input class="btn btn-primary" type="submit" value="点击预测" id="prediction-btn"></span>
+                        使用我们的组合模型对下一个时间步的潮汐水位值进行预测，其结果为：</p>
                     <p id="prediction-result"></p>
                 </div>
             </div>
@@ -360,27 +361,55 @@
             myChart.setOption(option);
         }
     </script>
+
+    <!-- 获得预测值并更新页面 -->
+    <script type="text/javascript">
+        function TidalPrediction(json_data) {
+            var input_seq = json_data["prediction_result"];
+            //更新结果的值
+            $("#prediction-result").text(input_seq+"m")
+        }
+    </script>
+
     <!-- Ajax异步 -->
     <!-- 妈的，这个回调是真麻烦，没有flask好用 -->
     <script>
+        //加载完页面DOM元素后要执行的函数
         $(document).ready(
             function () {
                 $("#choose-site-btn").on("click", function () {
                     $.ajax({
-                            url: "echarts", //相当于form表单里的action，把参数提交到echarts路由
-                            type: "GET",
-                            data: {
-                                "choose-site": $("#choose-site-select").val(),
-                            },
-                            success: function (data) {
-                                LineGraph(data)
-                            },
-                            error: function () {
-                                console.log('failed')
-                            }
+                        url: "echarts", //相当于form表单里的action，把参数提交到echarts路由
+                        type: "GET",
+                        data: {
+                            "choose-site": $("#choose-site-select").val(),
                         },
-                    )
+                        success: function (data) {
+                            LineGraph(data)
+                        },
+                        error: function () {
+                            console.log('Failed to Draw Line Graphs!')
+                        }
+                    })
+                });
+                $("#prediction-btn").on("click", function () {
+                    $.ajax({
+                        url: "prediction",
+                        type: "GET",
+                        data: {
+                            {# url的参数名称 #}
+                            "input-seq": $("#input-seq").val(),
+                        },
+                        success: function (data) {
+                            TidalPrediction(data)
+                        },
+                        error: function () {
+                            console.log('Failed to Get Tidal Prediction!')
+                        }
+                    })
                 })
+
+
             }
         )
     </script>
